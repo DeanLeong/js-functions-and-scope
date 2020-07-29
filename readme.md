@@ -1,6 +1,6 @@
 # Functions and Scope
 
-## Framing (5 min / 0:05)
+## Framing 
 
 We've learned a lot of things that are fundamental to programming, such as
 primitive and complex data types, conditionals, and loops. However, we still
@@ -54,7 +54,7 @@ Benefits of functions:
 
 ---
 
-### Recognize the Parts (20 min / 0:25)
+### Recognize the Parts
 
 **What are the components of a function?**
 
@@ -82,6 +82,21 @@ function multiply(num1, num2) {
 > These terms are often used interchangeably, which is okay. But knowing the
 > difference can come in handy.
 
+1. num1 and num2 are our parameters. Note that they are in a comma separated list. This tells our function that we are going to give it the function 2 values, num1 and num2.
+
+2. There is nothing special about the words `num1` and `num2` here. These are just descriptive names to remember what information that is being given to our function. We could use other names as well i.e. `number1` and `number2`, `value1` and `value2`, etc. It's best practice to be semantic as possible when declaring parameters.
+
+```js
+function multiply(num1, num2) {
+  console.log(num1 * num2) // Note: This is a side effect which is covered later.
+}
+
+multiply(3, 4) // 12
+multipley(6, 3) // 18 
+```
+
+3. When the name of the function is followed by `()` the function is being called. By passing comma separated values in between the parentheses (i.e. arguments) correlate to the name of the parameters when the function was declared. Ex: `3` relates to `num1` and `4` relates to `num2`. **Note that the order does matter.**
+
 #### Default/Optional Parameters
 
 Default parameters were introduced in ES6. They allow us to define parameters
@@ -90,7 +105,7 @@ passing them in. We can set optional parameters in a function definition by
 assigning a value to the parameter definition.
 
 ```js
-function exponentiate (base, exponent = 2) {
+function exponentiate(base, exponent = 2) {
   return base ** exponent
 }
 
@@ -182,48 +197,54 @@ What does the first one do? What does the second one do?
 Are there advantages to doing it the first way? What about the second way? Which
 one seems easier to understand?
 
-### You do: Write some functions (15 min / 0:40)
+### You do: Write some functions
 
-Open your code editor and spend 15 minutes writing some code and getting a feel
-for functions. Try and work through all of these, but at the very least do the
-first 5 and then 1 from each category.
+Open your code editor and write out the following functions. Try and work through all of these, and we will review afterwards. For the time being, don't worry about creating `side effects`.
 
-Start with the basics for these.
+1.  Write a function that console.logs 'Hello World'
+2.  Write a function that console.logs whatever you want it to say
+3.  Write a function that prints every number between 1 and 100.
+4.  Write a function that takes an array of numbers, as a parameter and adds each element of that array to a counter and prints the final value of the counter (i.e. the sum of all of the numbers in the array).
+e.g. Passing the function the array `[2, 4, 6, 8]` should give you back the answer to `20`
+5.  Write a function that loops over the following array of SEI students and prints out their name and what class they are currently in.
+  e.g `Alice is in SEI <your_cohort_name>`
+  
+```js
+const students = [
+  'Alice',
+  'Andrew',
+  'Casey',
+  'Damian',
+  'Grant',
+  'Howie',
+  'Wade',
+  'Kat',
+  'Kimbrad',
+  'Kiu',
+  'Natasha',
+  'Obi',
+  'Pedro',
+  'Sarah',
+  'Scott',
+  'Tiffany',
+  'Zhe',
+];
+```
 
-Write one function per bullet point. Write a function that:
+6.  Write a function that takes an array of strings as a parameter and returns an array of numbers corresponding to the lengths of each word.
+    e.g. passing this function an array `['i', 'am', 'the', 'best']` should give you back `[1, 2, 3, 4]`
+    Hint: you can call .length on a string!
+7.  Write a function that takes 3 parameters and returns one number, which is the product of the first two numbers raised to the power of the third.
+    e.g. passing this function `1, 2, 3` should give you back the answer to `(1 * 2)^3`
 
-- Console logs "hello"
-- Console logs "world"
-- Takes a parameter called "name" and console logs it
-- Takes a parameter called "name" and console logs "hello" + name
-- Takes a parameter called "number" and multiplies it by itself, then console
-  logs the result
+Bonus Functions!
 
-These functions should all return something. Each should:
+1.  Rewrite your previous function to print every EVEN number between 1 and 100
+2.  Recreate the Fibonacci sequence between 1 and 20. If you don't know what that is, Google is your best friend!
 
-- Take a number as a parameter and return itself squared.
-- Have 3 optional parameters, all numbers. Add all the numbers together. If the
-  function is called without passing any numbers in, simply return 10.
-- Take a number and add some amount of zeroes to the end, returning it (make
-  sure you return a number, not a string)
-- return a function that console logs 'hello world' (yes you can write functions
-  inside functions!)
 
-Also, write some functions with side effects.
 
-- Declare a variable, assigning a string to it. Then write a function that
-  modifies that string without returning anything.
-- Declare a variable, assigning an array that contains 5 numbers to it. Then
-  write a function that removes the first item from the array.
-
-Lastly:
-
-- Write two functions that do the same thing, but one returns the value and the
-  other modifies a variable with side effects.
-  - The functions should both add the string "flabbergasted" on to the end of an
-    array
-
-### Function Declarations and Expressions (10 min / 0:50)
+### Function Declarations and Expressions
 
 There are two ways to define a function...
 
@@ -264,7 +285,11 @@ Both do the same thing and run the same chunk of code but they are different.
 While we call/reference functions defined through declarations and expressions
 the same way, they do have a subtle but important difference...
 
-### Hoisting (10 min / 1:00)
+### Hoisting
+
+Hoisting is a general way of thinking about how execution contexts (specifically the creation and execution phases) work in JavaScript. 
+
+Conceptually, for example, a strict definition of hoisting suggests that variable and function declarations are physically moved to the top of your code, but this is not in fact what happens. Instead, the variable and function declarations are put into memory during the compile phase, but stay exactly where you typed them in your code.
 
 Function declarations are processed before any code is executed, meaning you can
 call functions before they are declared in the flow of your code. This behavior
@@ -329,7 +354,7 @@ function declare() {
 You can read more about hoisting
 [here](https://developer.mozilla.org/en-US/docs/Glossary/Hoisting)
 
-### ES6 Features (10 min / 1:10)
+### ES6 Features
 
 #### Arrow Functions
 
@@ -370,11 +395,11 @@ const multiply = (num1, num2) => (
 )
 ```
 
-## Break (10 min / 1:20)
+## Break (10 minutes)
 
 ## Scope
 
-### What Is Scope? (15 min / 1:35)
+### What Is Scope?
 
 **In real life:** Your "scope" is what your eyes can see from wherever you're
 standing.
@@ -400,11 +425,11 @@ getColor();
 console.log(color); // What should we see in the console?
 ```
 
-Let's see what happens if we add the `var` keyword...
+Let's see what happens if we add the `let` keyword...
 
 ```js
 function getAnotherColor() {
-  var anotherColor = "green";
+  let anotherColor = "green";
 }
 
 getAnotherColor();
@@ -438,7 +463,7 @@ Another way to say this...
 - However, a function can access all variables and functions defined inside the
   scope in which it is defined (which includes all outer scopes).
 
-### We Do: A More Complex Example (15 min / 1:50)
+### We Do: A More Complex Example
 
 Let's walk through this example in two steps...
 
@@ -479,7 +504,7 @@ console.log(batterName); // Does this work?
 
 </details>
 
-### More on Hoisting (10 min / 2:00)
+### More on Hoisting 
 
 #### Functions
 
@@ -525,25 +550,6 @@ function sayHello() {
 
 </details>
 
-### You do: Write your own (15 min / 2:15)
-
-> 10 minute exercise. 5 minute review
-
-Write a small piece of code that meets the following requirements. Identify and
-put a comment next to each variable identifying its scope.
-
-- Has a global variable
-- Has at least 1 variable in each function
-- Has at least 1 function with parameters
-- The function with parameters should modify that input and return something new
-
-Some ideas for inspiration:
-
-- Name scrambler (takes a string name input and modifies it in some way)
-- Take two numbers and return the square root of the difference
-- A function that shuffles an array.
-
----
 
 ## Review Questions
 
@@ -633,3 +639,4 @@ var profileID = 4011989;
 
 - [Understanding Scope and Context in JavaScript](http://ryanmorr.com/understanding-scope-and-context-in-javascript/)
 - [Everything you wanted to know about JavaScript scope](http://toddmotto.com/everything-you-wanted-to-know-about-javascript-scope/)
+- [Hoisting](https://developer.mozilla.org/en-US/docs/Glossary/Hoisting)
