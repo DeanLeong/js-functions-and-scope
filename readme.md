@@ -116,9 +116,6 @@ exponentiate(4)
 => 16
 ```
 
-> Optional parameters are very useful when writing **recursive** functions as
-> they allow values to more easily be passed through multiple function calls
-
 ### Calling vs Referencing a Function
 
 Let's say we've defined a function. Now we need to call it...
