@@ -116,9 +116,6 @@ exponentiate(4)
 => 16
 ```
 
-> Optional parameters are very useful when writing **recursive** functions as
-> they allow values to more easily be passed through multiple function calls
-
 ### Calling vs Referencing a Function
 
 Let's say we've defined a function. Now we need to call it...
@@ -259,7 +256,7 @@ function multiply(num1, num2) {
 #### Expression
 
 ```js
-var multiply = function(num1, num2) {
+let multiply = function(num1, num2) {
   return num1 * num2;
 };
 
@@ -303,7 +300,7 @@ What do you think will happen when we run the below code...
 ```js
 multiply(3, 5);
 
-var multiply = function(num1, num2) {
+let multiply = function(num1, num2) {
   return num1 * num2;
 };
 // function expression
@@ -362,7 +359,7 @@ Following the release of ECMAScript 6 (ES6) in 2015, anonymous functions can be
 written as "arrow functions", a syntax adapted from CoffeeScript.
 
 ```js
-var multiply = function(num1, num2) {
+const multiply = function(num1, num2) {
   // function expression
   return num1 * num2;
 };
@@ -472,14 +469,14 @@ Let's walk through this example in two steps...
 
 ```js
 teamName = "Giraffes"; // What scope is this?
-var teamCity = "Sioux Falls"; // What scope is this?
+let teamCity = "Sioux Falls"; // What scope is this?
 
 function playBaseball() {
   console.log("From " + teamCity + "..."); // Does this work?
   console.log("Welcome the " + teamName + "!"); // Does this work?
 
   pitcherName = "Meg"; // What scope is this?
-  var batterName = "Perry"; // What scope is this?
+  let batterName = "Perry"; // What scope is this?
 
   console.log(batterName); // Does this work?
   console.log(pitcherName); // Does this work?
@@ -515,7 +512,7 @@ Recall that there are two ways to declare functions in Javascript, **function
 declarations** and **function expressions**.
 
 ```js
-var sayHello = function() {
+let sayHello = function() {
   console.log("Hello!");
 };
 
@@ -531,7 +528,7 @@ function sayHello() {
     Which is a function declaration? Which is a function expression?
   </summary>
 
-- `var sayHello = function () {}` is a function expression.
+- `let sayHello = function () {}` is a function expression.
 - `function sayHello () {}` is a function declaration.
 
 </details>
