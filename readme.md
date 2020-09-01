@@ -260,7 +260,7 @@ let multiply = function(num1, num2) {
   return num1 * num2;
 };
 
-// var, let, and const are all valid here
+// let, and const are all valid here
 ```
 
 #### Declarations vs. Expressions
@@ -328,7 +328,7 @@ below example?
 // What happens when we run this function at this point in the code?
 express();
 
-var express = function() {
+const express = function() {
   console.log("Function expression called.");
 };
 ```
@@ -336,7 +336,7 @@ var express = function() {
 What about when we run this example?
 
 ```js
-var express = function() {
+const express = function() {
   console.log("Function expression called.");
 };
 
